@@ -3,6 +3,14 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+:root{
+    --indigo: rgb(141, 133, 241);
+    --blue: rgb(113, 155, 218);
+    --border-radius: 8px;
+    --padding: 8px 12px;
+}
+
 body{
     background-color: aliceblue;
     width: 100%;
@@ -16,15 +24,10 @@ body{
 
 .container{
     width: clamp(300px,100%,800px);
-    padding: 2rem 0;
     min-height: 100vh;
     /* border: 1px solid orange; */
     background-color: rgb(228, 234, 240);
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
 }
 
 .card{
@@ -46,6 +49,22 @@ button{
     box-shadow: 0px 0px 5px 0px lightgray;
     background-image: linear-gradient(45deg,rgb(141, 133, 241),rgb(172, 167, 243),rgb(113, 155, 218));
 }
+
 h1{
+    width: fit-content;
+    margin: 1rem auto;
     color: grey;
+    text-align: center;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right,rgb(141, 133, 241),rgb(113, 155, 218)) 1;    
+}
+
+section{
+    width: 100%;
+    min-height: 50vh;
+    border: 2px solid grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
 }
