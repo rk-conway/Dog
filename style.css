@@ -45,6 +45,7 @@ body{
     justify-content: center;
     gap: 1rem;
 }
+
 span.icon{
     width: 40px;
     aspect-ratio: 1;
@@ -52,6 +53,12 @@ span.icon{
     background-color: var(--indigo-100);
     display: grid;
     place-items: center;
+}
+
+span.icon:hover{
+    background-color: var(--indigo);
+    border: 2px solid white;
+    transform: translateY(-2px);
 }
 
 button{
