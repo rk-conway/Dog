@@ -31,13 +31,17 @@ getData();
 
 function addLocalStorage(newDog){
     if(!dog) return;
-    
+
     const localDogArr = localStorage.getItem("dogArray");
 
     if(localDogArr){
+        localStorage.removeItem('dogArray');
         let newDogArr = JSON.parse(localDogArr);
         console.log("the current dog array:",newDogArr);
-        newDogArr.push(newDog);
+        let exists = newDogArr.find((e)=>e.message === newDog.message);
+        if(!exists){
+            newDogArr.push(newDog);
+        }
         localStorage.setItem("dogArray",JSON.stringify(newDogArr));
 
     }else{
@@ -45,5 +49,30 @@ function addLocalStorage(newDog){
         objDogArr.push(newDog);
         console.log("this is the initialized arr: ",objDogArr);
         localStorage.setItem("dogArray",JSON.stringify(objDogArr));
+    }
+}
+
+function getLocalStorage(){
+    const localDogArr = localStorage.getItem("dogArray");
+    
+    if(localDogArr){
+        return JSON.parse(localDogArr);
+    }else{
+        return null;
+    }
+}
+
+function setLocalGallery(){
+    let imageArr = getLocalStorage();
+    if(imageArr){
+        let likedDogs = '';
+        imageArr.map((i)=>{
+            likedDogs += `
+                <div class="liked-dog" style="background: url(${i.message}) no-repeat center/cover">
+
+                </div>
+            `;
+            document.querySelector('.liked-dogs').innerHTML = likedDogs;
+        })
     }
 }
