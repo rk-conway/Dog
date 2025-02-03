@@ -29,31 +29,31 @@ async  function getData() {
 getData();
 
 
-function addLocalStorage(newDog){
+function addLocalStorage(newDog,dogArray='likedDogs'){
     if(!dog) return;
 
-    const localDogArr = localStorage.getItem("dogArray");
+    const localDogArr = localStorage.getItem(dogArray);
 
     if(localDogArr){
-        localStorage.removeItem('dogArray');
+        localStorage.removeItem(dogArray);
         let newDogArr = JSON.parse(localDogArr);
         console.log("the current dog array:",newDogArr);
         let exists = newDogArr.find((e)=>e.message === newDog.message);
         if(!exists){
             newDogArr.push(newDog);
         }
-        localStorage.setItem("dogArray",JSON.stringify(newDogArr));
+        localStorage.setItem(dogArray,JSON.stringify(newDogArr));
 
     }else{
         let objDogArr = [];
         objDogArr.push(newDog);
         console.log("this is the initialized arr: ",objDogArr);
-        localStorage.setItem("dogArray",JSON.stringify(objDogArr));
+        localStorage.setItem(dogArray,JSON.stringify(objDogArr));
     }
 }
 
-function getLocalStorage(){
-    const localDogArr = localStorage.getItem("dogArray");
+function getLocalStorage(dogArray='likedDogs'){
+    const localDogArr = localStorage.getItem(dogArray);
     
     if(localDogArr){
         return JSON.parse(localDogArr);
@@ -73,6 +73,21 @@ function setLocalGallery(){
                 </div>
             `;
             document.querySelector('.liked-dogs').innerHTML = likedDogs;
+        })
+    }
+}
+
+function setLocalBookmarkedGallery(){
+    let imageArr = getLocalStorage('bookmarkedDogs');
+    if(imageArr){
+        let bookmarkedDogs = '';
+        imageArr.map((i)=>{
+            bookmarkedDogs += `
+                <div class="bookmarked-dog" style="background: url(${i.message}) no-repeat center/cover">
+
+                </div>
+            `;
+            document.querySelector('.bookmarked-dogs').innerHTML = bookmarkedDogs;
         })
     }
 }
