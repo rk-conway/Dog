@@ -100,14 +100,21 @@ function setLocalBookmarkedGallery(){
 
 function selectPage(target = 0){
     const allPages = document.querySelectorAll('section');
+    const allPageLinks= document.querySelectorAll('.page-link');
     
     if(allPages){
         for(i=0;i<allPages.length;i++){
             allPages[i].style.display = 'none';
         }
+        allPages[target].style.display = 'block';
     }
     
-    allPages[target].style.display = 'block';
+    if(allPageLinks){
+        for(i=0;i<allPageLinks.length;i++){
+            allPageLinks[i].classList.remove('active');
+        }
+        allPageLinks[(target+1)%3].classList.add('active');
+    }
 }
 
 selectPage(0);

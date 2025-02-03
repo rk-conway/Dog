@@ -82,6 +82,12 @@ span.icon:hover{
     transform: translateY(-2px);
 }
 
+span.active{
+    background-color: var(--indigo);
+    border: 2px solid white;
+    transform: translateY(-2px);
+}
+
 button{
     min-width: 150px;
     font-size: 1.1rem;
