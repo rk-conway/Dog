@@ -10,10 +10,10 @@ async  function getData() {
         
         if(image){
             document.querySelector('.card').style.background = `url(${image.message}) no-repeat center/cover`;
-            // document.querySelector('img').src = image.message;
+            document.querySelector('img').src = image.message;
             dog = image;
         }
-
+        
         if(!res.status){
             throw Error("Whoofps scooby says something went wrong")
         }
@@ -31,9 +31,9 @@ getData();
 
 function addLocalStorage(newDog,dogArray='likedDogs'){
     if(!dog) return;
-
+    
     const localDogArr = localStorage.getItem(dogArray);
-
+    
     if(localDogArr){
         localStorage.removeItem(dogArray);
         let newDogArr = JSON.parse(localDogArr);
@@ -43,7 +43,7 @@ function addLocalStorage(newDog,dogArray='likedDogs'){
             newDogArr.push(newDog);
         }
         localStorage.setItem(dogArray,JSON.stringify(newDogArr));
-
+        
     }else{
         let objDogArr = [];
         objDogArr.push(newDog);
@@ -63,16 +63,16 @@ function getLocalStorage(dogArray='likedDogs'){
 }
 
 function setLocalGallery(){
-
+    
     selectPage(1);
-
+    
     let imageArr = getLocalStorage();
     if(imageArr){
         let likedDogs = '';
         imageArr.map((i)=>{
             likedDogs += `
                 <div class="liked-dog" style="background: url(${i.message}) no-repeat center/cover">
-
+            
                 </div>
             `;
             document.querySelector('.liked-dogs').innerHTML = likedDogs;
@@ -81,16 +81,16 @@ function setLocalGallery(){
 }
 
 function setLocalBookmarkedGallery(){
-
+    
     selectPage(2);
-
+    
     let imageArr = getLocalStorage('bookmarkedDogs');
     if(imageArr){
         let bookmarkedDogs = '';
         imageArr.map((i)=>{
             bookmarkedDogs += `
                 <div class="bookmarked-dog" style="background: url(${i.message}) no-repeat center/cover">
-
+            
                 </div>
             `;
             document.querySelector('.bookmarked-dogs').innerHTML = bookmarkedDogs;
@@ -106,7 +106,7 @@ function selectPage(target = 0){
             allPages[i].style.display = 'none';
         }
     }
-
+    
     allPages[target].style.display = 'block';
 }
 
