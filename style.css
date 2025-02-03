@@ -8,6 +8,7 @@
     --indigo: rgb(141, 133, 241);
     --indigo-100: rgb(214, 211, 255);
     --blue: rgb(113, 155, 218);
+    --grey: rgb(99, 99, 99);
     --border-radius: 8px;
     --padding: 8px 12px;
 }
@@ -95,7 +96,7 @@ h1{
 section{
     width: 100%;
     min-height: 90vh;
-    /* border: 2px solid grey; */
+    padding: var(--padding);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,17 +113,15 @@ nav{
     background-image: linear-gradient(45deg, var(--indigo),var(--blue));
     padding: var(--padding);
     border-radius: var(--border-radius);
+    box-shadow: 0px 0px 12px -4px var(--grey);
     display: flex;
     align-items: center;
     justify-content: space-around;
 }
 
-
 .liked-dogs,.bookmarked-dogs{
-    /* border: 2px solid blue; */
     width: 100%;
     height: 90vh;
-    margin: var(--padding);
     padding: var(--padding);
     background-color: white;
     box-shadow: 0px 0px 8px -5px var(--blue);
