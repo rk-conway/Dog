@@ -16,38 +16,47 @@
                 
                 <!-- this is the home "page" -->
                 <section>
-                    <div class="card">
-                        <!-- <img src="" alt=""> -->
-                    </div>
-                    <div class="actions" id="like-dog">
-                        <span class="icon"  onclick="addLocalStorage(dog,'bookmarkedDogs')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="M4.75 20.113c0 .498.554.803.983.54l5.702-3.48a1.09 1.09 0 0 1 1.13 0l5.702 3.48a.644.644 0 0 0 .983-.54V6.25a3 3 0 0 0-3-3h-8.5a3 3 0 0 0-3 3z"/></svg>
-                        </span>
+                    <div class="wrapper">
                         
-                        <button onclick="getData()">next image</button>
+                        <div class="card">
+                            <!-- <img src="" alt=""> -->
+                        </div>
+                        <div class="actions" id="like-dog">
+                            <span class="icon"  onclick="addLocalStorage(dog,'bookmarkedDogs')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="M4.75 20.113c0 .498.554.803.983.54l5.702-3.48a1.09 1.09 0 0 1 1.13 0l5.702 3.48a.644.644 0 0 0 .983-.54V6.25a3 3 0 0 0-3-3h-8.5a3 3 0 0 0-3 3z"/></svg>
+                            </span>
+                            
+                            <button onclick="getData()">next image</button>
+                            
+                            <span class="icon" onclick="addLocalStorage(dog,'likedDogs')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="M4.087 6.477a4.565 4.565 0 0 1 6.456 0L12 7.934l1.457-1.457a4.565 4.565 0 0 1 6.456 6.457l-1.457 1.456l.013.013l-6.456 6.457l-.013-.013l-.013.013l-6.456-6.457l.013-.013l-1.457-1.456a4.565 4.565 0 0 1 0-6.457Z"/></svg>
+                            </span>
+                        </div>
                         
-                        <span class="icon" onclick="addLocalStorage(dog,'likedDogs')">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="M4.087 6.477a4.565 4.565 0 0 1 6.456 0L12 7.934l1.457-1.457a4.565 4.565 0 0 1 6.456 6.457l-1.457 1.456l.013.013l-6.456 6.457l-.013-.013l-.013.013l-6.456-6.457l.013-.013l-1.457-1.456a4.565 4.565 0 0 1 0-6.457Z"/></svg>
-                        </span>
                     </div>
                 </section>
                 
                 <!-- this is the liked "page" -->
                 <section>
-                    <h1>Liked dogs</h1>
-                    
-                    
-                    <div class="liked-dogs">
-                        <div class="liked-dog"></div>
+                    <div class="wrapper">
+                        
+                        <h1>Liked dogs</h1>                        
+                        <div class="liked-dogs">
+                            <div class="liked-dog"></div>
+                        </div>
+                        
                     </div>
-                    
                 </section>
                 
                 <!-- this is the bookmarked "page" -->
                 <section>
-                    <h1>Bookmarks</h1>
-                    <div class="bookmarked-dogs">
-                        <div class="bookmarked-dog"></div>
+                    <div class="wrapper">
+                        
+                        <h1>Bookmarks</h1>
+                        <div class="bookmarked-dogs">
+                            <div class="bookmarked-dog"></div>
+                        </div>
+                        
                     </div>
                 </section>
             </main>
@@ -55,7 +64,7 @@
             <nav>
                 <span class="icon" onclick="setLocalBookmarkedGallery()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5" d="M4.75 20.113c0 .498.554.803.983.54l5.702-3.48a1.09 1.09 0 0 1 1.13 0l5.702 3.48a.644.644 0 0 0 .983-.54V6.25a3 3 0 0 0-3-3h-8.5a3 3 0 0 0-3 3z"/></svg>                </span>
-                    <span class="icon">
+                    <span class="icon" onclick="selectPage(0)">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.71 18.65v-7.622a3 3 0 0 0-1.151-2.362l-6.326-4.951a2 2 0 0 0-2.466 0l-6.326 4.95a3 3 0 0 0-1.15 2.363v7.622c0 1.16.94 2.1 2.1 2.1h3.97v-7.965h5.278v7.965h3.97a2.1 2.1 0 0 0 2.1-2.1"/></svg>
                     </span>
                     <span class="icon" onclick="setLocalGallery()">

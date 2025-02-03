@@ -63,6 +63,9 @@ function getLocalStorage(dogArray='likedDogs'){
 }
 
 function setLocalGallery(){
+
+    selectPage(1);
+
     let imageArr = getLocalStorage();
     if(imageArr){
         let likedDogs = '';
@@ -78,6 +81,9 @@ function setLocalGallery(){
 }
 
 function setLocalBookmarkedGallery(){
+
+    selectPage(2);
+
     let imageArr = getLocalStorage('bookmarkedDogs');
     if(imageArr){
         let bookmarkedDogs = '';
@@ -91,3 +97,17 @@ function setLocalBookmarkedGallery(){
         })
     }
 }
+
+function selectPage(target = 0){
+    const allPages = document.querySelectorAll('section');
+    
+    if(allPages){
+        for(i=0;i<allPages.length;i++){
+            allPages[i].style.display = 'none';
+        }
+    }
+
+    allPages[target].style.display = 'block';
+}
+
+selectPage(0);
